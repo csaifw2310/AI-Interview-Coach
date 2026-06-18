@@ -9,8 +9,7 @@ import Register from "./pages/Register";
 import VerifyOTP from "./pages/VerifyOTP";
 import ForgotPassword from "./pages/ForgotPassword";
 import VerifyResetOTP from "./pages/VerifyResetOTP";
-import ResetPassword from "./pages/ResetPassword";
-import Profile from "./pages/Profile";
+import ResetPassword from "./pages/ResetPassword"
 import ProtectedRoute from "./routes/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
 import NotFound from "./pages/NotFound";
@@ -79,15 +78,6 @@ function App() {
                     element={
                       <ProtectedRoute>
                         <Home />
-                      </ProtectedRoute>
-                    }
-                  />
-
-                  <Route
-                    path="/profile"
-                    element={
-                      <ProtectedRoute>
-                        <Profile />
                       </ProtectedRoute>
                     }
                   />

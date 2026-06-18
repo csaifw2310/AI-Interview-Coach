@@ -2,8 +2,7 @@ require("dotenv").config();
 require("./src/config/passport");
 const app = require("./src/app");
 const connectDB = require("./src/config/db");
-
-
+ 
 connectDB();
 
 const PORT = process.env.PORT || 3000;

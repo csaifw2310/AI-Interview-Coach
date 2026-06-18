@@ -5,6 +5,7 @@ const session = require("express-session")
 const passport = require("passport")
 
 const authRoutes = require("./routes/authRoutes");
+const interviewRouter = require("./routes/interviewRoute")
 
 const app = express();
 
@@ -24,5 +25,6 @@ app.use(
 
  
 app.use("/api/auth", authRoutes);
+app.use("/api/interview", interviewRouter)
 
 module.exports = app;

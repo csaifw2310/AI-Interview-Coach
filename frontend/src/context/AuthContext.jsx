@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
 
-      await api.post("/logout");
+      await api.get("/logout");
 
     } catch (error) {
 

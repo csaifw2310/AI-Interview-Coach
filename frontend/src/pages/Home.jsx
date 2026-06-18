@@ -1,196 +1,156 @@
-import MainLayout from "../components/MainLayout";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   return (
+    <>
+      {/* Header */}
+      <header
+        className="
+          bg-white
+          shadow-sm
+          border-b
+          sticky
+          top-0
+          z-50
+        "
+      >
+        <div
+          className="
+            max-w-full
+            px-6
+            py-4
+            flex
+            items-center
+            justify-between
+          "
+        >
+          <h1 className="text-2xl font-bold text-[#343762]">
+            NexaCode
+          </h1>
 
-    <MainLayout>
-
-      <div className="grid grid-cols-12 gap-6">
-
-        {/* LEFT */}
-
-        <div className="col-span-3">
-
-          <div className="bg-white rounded-3xl shadow-md p-6">
-
-            <div
-              className="
-              w-20
-              h-20
-              mx-auto
-              rounded-full
-              bg-gradient-to-r
-              from-purple-400
-              to-purple-700
-              flex
-              items-center
-              justify-center
-              text-white
-              text-3xl
-              font-bold
-              "
-            >
-              {user?.name?.charAt(0)}
-            </div>
-
-            <h2
-              className="
-              text-center
-              text-xl
-              font-bold
-              mt-4
-              text-[#343762]
-              "
-            >
-              {user?.name}
-            </h2>
-
-            <p
-              className="
-              text-center
-              text-gray-500
-              "
-            >
-              {user?.email}
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* CENTER */}
-
-        <div className="col-span-6">
-
-          <div
-            className="
-            bg-white
-            rounded-3xl
-            shadow-md
-            p-6
-            mb-6
-            "
-          >
-
-            <h2
-              className="
-              text-xl
-              font-bold
-              text-[#343762]
-              mb-4
-              "
-            >
-              Create Post
-            </h2>
-
-            <textarea
-              placeholder="Share something..."
-              className="
-              w-full
-              border
-              rounded-xl
-              p-4
-              resize-none
-              outline-none
-              "
-              rows="4"
-            />
-
+          <div className="relative">
             <button
-              className="
-              mt-4
-              px-6
-              py-3
-              rounded-xl
-              text-white
-              font-semibold
-              bg-gradient-to-r
-              from-purple-400
-              via-purple-500
-              to-purple-700
-              "
+              onClick={() => setOpen(!open)}
+              className="flex items-center gap-3"
             >
-              Post
+              <div
+                className="
+                  w-10
+                  h-10
+                  rounded-full
+                  bg-gradient-to-r
+                  from-purple-400
+                  to-purple-700
+                  text-white
+                  flex
+                  items-center
+                  justify-center
+                  font-bold
+                "
+              >
+                {user?.name?.charAt(0)?.toUpperCase()}
+              </div>
+
+              <span className="font-medium text-[#343762]">
+                {user?.name}
+              </span>
             </button>
 
+            {open && (
+              <div
+                className="
+                  absolute
+                  right-0
+                  mt-3
+                  w-52
+                  bg-white
+                  rounded-xl
+                  shadow-lg
+                  overflow-hidden
+                "
+              >
+                <Link
+                  to="/profile"
+                  className="
+                    block
+                    px-4
+                    py-3
+                    hover:bg-gray-100
+                  "
+                >
+                  View Profile
+                </Link>
+
+                <button
+                  onClick={handleLogout}
+                  className="
+                    w-full
+                    text-left
+                    px-4
+                    py-3
+                    text-red-500
+                    hover:bg-gray-100
+                  "
+                >
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
-
-          <div
-            className="
-            bg-white
-            rounded-3xl
-            shadow-md
-            p-6
-            "
-          >
-
-            <h2
-              className="
-              text-xl
-              font-bold
-              text-[#343762]
-              mb-4
-              "
-            >
-              Recent Posts
-            </h2>
-
-            <p className="text-gray-500">
-              No posts available yet.
-            </p>
-
-          </div>
-
         </div>
+      </header>
 
-        {/* RIGHT */}
+      {/* Home Content */}
+      <main className="p-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#343762] mb-4">
+            Welcome, {user?.name} 👋
+          </h2>
 
-        <div className="col-span-3">
+          <p className="text-gray-600">
+            You are successfully logged in to NexaCode.
+          </p>
 
-          <div
-            className="
-            bg-white
-            rounded-3xl
-            shadow-md
-            p-6
-            "
-          >
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white shadow rounded-xl p-6">
+              <h3 className="font-semibold text-lg">Projects</h3>
+              <p className="text-gray-500 mt-2">
+                Manage your development projects.
+              </p>
+            </div>
 
-            <h2
-              className="
-              text-xl
-              font-bold
-              text-[#343762]
-              mb-4
-              "
-            >
-              Trending
-            </h2>
+            <div className="bg-white shadow rounded-xl p-6">
+              <h3 className="font-semibold text-lg">Tasks</h3>
+              <p className="text-gray-500 mt-2">
+                Track and organize your tasks.
+              </p>
+            </div>
 
-            <ul className="space-y-3">
-
-              <li>#Internships</li>
-
-              <li>#Coding</li>
-
-              <li>#AI</li>
-
-              <li>#WebDevelopment</li>
-
-            </ul>
-
+            <div className="bg-white shadow rounded-xl p-6">
+              <h3 className="font-semibold text-lg">Profile</h3>
+              <p className="text-gray-500 mt-2">
+                Update your account information.
+              </p>
+            </div>
           </div>
-
         </div>
-
-      </div>
-
-    </MainLayout>
-
+      </main>
+    </>
   );
-
 }
