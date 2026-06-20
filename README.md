@@ -72,39 +72,33 @@ The platform uses Google Gemini AI to generate a complete interview preparation 
 
 ### Home Page
 
-Add:
 
-screenshots/home.png
+screenshots/Home.png
+<img  controls src="./screenshots/Home.png" title="Home"></img># AI-Interview-Coach
 
 ### Interview Report
 
 Add:
 
 screenshots/report.png
+<img  controls src="./screenshots/report.png" title="report"></img># AI-Interview-Coach
+<img  controls src="./screenshots/reportLightmode.png" title="report"></img># AI-Interview-Coach
 
 ### Reports Dashboard
 
 Add:
 
-screenshots/reports.png
+screenshots/Reports.png
+<img  controls src="./screenshots/Reports.png" title="reports"></img># AI-Interview-Coach
 
 ### Dark Mode
 
 Add:
-
-screenshots/dark-mode.png
-
+ dark-mode 
+<img  controls src="./screenshots/Home.png" title="Home"></img># AI-Interview-Coach
 ---
 
 ## 🎥 Product Demo
-
-Add your generated GIF:
-
-screenshots/demo.gif
-
-Example:
-
-![Demo](./screenshots/demo.gif)
 
 ---
 
@@ -374,5 +368,5 @@ If you found this project useful:
 
 Built with ❤️ using React, Node.js, MongoDB and Google Gemini AI.
 
-# AI-Interview-Coach
+
 # AI-Interview-Coach
