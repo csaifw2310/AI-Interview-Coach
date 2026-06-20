@@ -374,7 +374,5 @@ If you found this project useful:
 
 Built with ❤️ using React, Node.js, MongoDB and Google Gemini AI.
 
-
- PROJECT DEMO VIDEO:<video controls src="/DemoVideo.mp4" title="DEMO VIDEO"></video># AI-Interview-Coach
 # AI-Interview-Coach
 # AI-Interview-Coach
