@@ -1,5 +1,4 @@
-const passport =
-require("passport");
+const passport = require("passport");
 
 const GoogleStrategy =
 require("passport-google-oauth20")
@@ -22,7 +21,7 @@ passport.use(
         .GOOGLE_CLIENT_SECRET,
 
       callbackURL:
-        "/api/auth/google/callback"
+`${process.env.SERVER_URL}/api/auth/google/callback`
     },
 
     async (
@@ -65,27 +64,16 @@ passport.use(
 
             }
 
-        user =
-                await User.create({
+       user = await User.create({
+        name: profile.displayName,
+        email: profile.emails[0].value,
+        provider: "google",
+        providerId: profile.id,
+        avatar: profile.photos[0]?.value,
+        isVerified: true
+      });
+      return done(null, user);
 
-                name:
-                    profile.displayName,
-
-                email:
-                    profile.emails[0].value,
-
-                provider:
-                    "google",
-
-                providerId:
-                    profile.id,
-
-                avatar:
-                    profile.photos[0]?.value,
-
-                isVerified: true
-
-                });
       } catch (error) {
 
         done(error);

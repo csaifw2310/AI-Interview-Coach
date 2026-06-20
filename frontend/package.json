@@ -8,9 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start":"vite"
+    "start": "vite"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.19.0",
     "@tailwindcss/vite": "^4.3.0",
     "axios": "^1.17.0",
     "lucide-react": "^1.21.0",
