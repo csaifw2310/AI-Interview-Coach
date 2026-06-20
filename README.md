@@ -1,135 +1,257 @@
-# Full Stack Authentication System
+# 🚀 AI Interview Coach
 
-A modern and secure authentication system built using React, Vite, Tailwind CSS, Node.js, Express.js, MongoDB, JWT Authentication, Email OTP Verification, Password Reset Flow, and Google OAuth Login.
-
-## Features
-
-### Authentication
-
-* User Registration
-* User Login
-* JWT-Based Authentication
-* Secure Logout
-* Protected Routes
-* Profile Management
-
-### Email Verification
-
-* OTP Generation
-* Email OTP Verification
-* OTP Resend Functionality
-* OTP Expiration Handling
-* Limited OTP Attempts Protection
-
-### Password Management
-
-* Forgot Password
-* Reset Password via OTP
-* Change Password
-* Secure Password Hashing using bcrypt
-
-### OAuth Authentication
-
-* Google OAuth Login
-* Session-Free Authentication Flow
-
-### Security Features
-
-* Password Hashing with bcrypt
-* JWT Authentication
-* HTTP-Only Cookies
-* Rate Limiting
-* Input Validation
-* Protected API Routes
-* Secure Authentication Middleware
+An AI-powered interview preparation platform that analyzes resumes, job descriptions, and candidate profiles to generate personalized interview reports, skill-gap analysis, technical questions, behavioral questions, and preparation roadmaps.
 
 ---
 
-## Tech Stack
+## 📌 Overview
+
+AI Interview Coach helps job seekers prepare smarter for interviews.
+
+Instead of manually researching interview questions and required skills, users simply:
+
+1. Upload their Resume (PDF)
+2. Paste a Job Description
+3. Add a Self Description
+
+The platform uses Google Gemini AI to generate a complete interview preparation report.
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* User Registration
+* Email Verification (OTP)
+* Login & Logout
+* Forgot Password
+* Reset Password
+* JWT Authentication
+* Protected Routes
+
+---
+
+### 🤖 AI Interview Analysis
+
+* Resume PDF Parsing
+* Job Description Analysis
+* Candidate Profile Analysis
+* AI Match Score
+* Technical Interview Questions
+* Behavioral Interview Questions
+* Skill Gap Analysis
+* Personalized Preparation Roadmap
+
+---
+
+### 📊 Report Dashboard
+
+* Interview Reports History
+* View Detailed Reports
+* Match Score Visualization
+* Skill Gap Analysis
+* Download AI-Optimized Resume
+* Dark / Light Theme
+
+---
+
+### 🎨 Modern UI
+
+* Responsive Design
+* Mobile Friendly
+* Dark Mode Support
+* SaaS Styled Dashboard
+* Loading States
+* Error Handling
+* Toast Notifications
+
+---
+
+## 🖼 Screenshots
+
+### Home Page
+
+Add:
+
+screenshots/home.png
+
+### Interview Report
+
+Add:
+
+screenshots/report.png
+
+### Reports Dashboard
+
+Add:
+
+screenshots/reports.png
+
+### Dark Mode
+
+Add:
+
+screenshots/dark-mode.png
+
+---
+
+## 🎥 Product Demo
+
+Add your generated GIF:
+
+screenshots/demo.gif
+
+Example:
+
+![Demo](./screenshots/demo.gif)
+
+---
+
+## 🏗 System Architecture
+
+```text
+                    ┌─────────────┐
+                    │    User     │
+                    └──────┬──────┘
+                           │
+                           ▼
+
+                 ┌──────────────────┐
+                 │ React + Vite UI  │
+                 └────────┬─────────┘
+                          │ Axios
+                          ▼
+
+              ┌────────────────────────┐
+              │ Node.js + Express API  │
+              └───────┬────────┬───────┘
+                      │        │
+                      │        │
+                      ▼        ▼
+
+             ┌────────────┐  ┌──────────────┐
+             │ MongoDB    │  │ Gemini AI    │
+             │ Atlas      │  │ API          │
+             └────────────┘  └──────────────┘
+                      │
+                      ▼
+
+              ┌─────────────────┐
+              │ Interview       │
+              │ Reports         │
+              └─────────────────┘
+
+                      │
+                      ▼
+
+             ┌──────────────────┐
+             │ Email Service    │
+             │ (SMTP)           │
+             └──────────────────┘
+```
+
+---
+
+## 🛠 Tech Stack
 
 ### Frontend
 
-* React 19
-* React Router DOM
+* React.js
 * Vite
 * Tailwind CSS
+* React Router DOM
 * Axios
+* React Hot Toast
+* Lucide React
 
 ### Backend
 
 * Node.js
 * Express.js
-* MongoDB
+* MongoDB Atlas
 * Mongoose
 * JWT
-* Passport.js
-* Google OAuth 2.0
+* Multer
+* PDF Parse
 * Nodemailer
-* bcryptjs
+
+### AI
+
+* Google Gemini API
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-```bash
+```text
+AI-Interview-Coach
+│
 ├── frontend
 │   ├── src
-│   │   ├── pages
+│   │   ├── api
 │   │   ├── components
 │   │   ├── context
 │   │   ├── hooks
-│   │   ├── routes
-│   │   └── api
+│   │   ├── layout
+│   │   ├── pages
+│   │   └── routes
+│   │
+│   └── public
 │
-├── Backend
-│   ├── src
-│   │   ├── config
-│   │   ├── controllers
-│   │   ├── middleware
-│   │   ├── models
-│   │   ├── routes
-│   │   ├── services
-│   │   └── utils
+├── backend
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── services
+│   ├── utils
 │   └── server.js
+│
+└── README.md
 ```
 
 ---
 
-## Installation
+## ⚙ Installation
 
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
-cd project-folder
+git clone https://github.com/yourusername/ai-interview-coach.git
+
+cd ai-interview-coach
 ```
 
-### Backend Setup
+---
+
+## Backend Setup
 
 ```bash
-cd Backend
+cd backend
+
 npm install
 ```
 
-Create a `.env` file:
+Create `.env`
 
 ```env
 PORT=5000
 
-MONGODB_URI=your_mongodb_connection
+MONGODB_URI=
 
-JWT_SECRET=your_jwt_secret
+JWT_SECRET=
 
-CLIENT_URL=http://localhost:5173
+JWT_EXPIRES_IN=
 
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
+GOOGLE_GEMINI_API_KEY=
 
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
+EMAIL_USER=
+
+EMAIL_PASS=
 ```
 
-Start Backend:
+Run Backend
 
 ```bash
 npm run dev
@@ -137,117 +259,120 @@ npm run dev
 
 ---
 
-### Frontend Setup
+## Frontend Setup
 
 ```bash
 cd frontend
+
 npm install
+```
+
+Create `.env`
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+Run Frontend
+
+```bash
 npm run dev
 ```
 
-Frontend runs on:
+---
 
-```bash
-http://localhost:5173
+## 🔑 Environment Variables
+
+### Backend
+
+```env
+PORT
+MONGODB_URI
+JWT_SECRET
+JWT_EXPIRES_IN
+GOOGLE_GEMINI_API_KEY
+EMAIL_USER
+EMAIL_PASS
+```
+
+### Frontend
+
+```env
+VITE_API_URL
 ```
 
 ---
 
-## Authentication Flow
+## 🌐 Deployment
 
-### Registration
+### Frontend
 
-1. User creates an account.
-2. OTP is sent to email.
-3. User verifies OTP.
-4. Account becomes active.
+Deploy on Vercel
 
-### Login
+### Backend
 
-1. User enters credentials.
-2. JWT token is generated.
-3. Token is stored in HTTP-only cookies.
-4. Protected routes become accessible.
+Deploy on Render
 
-### Password Reset
+### Database
 
-1. User requests password reset.
-2. OTP is sent to registered email.
-3. User verifies OTP.
-4. New password is created.
-
-### Google OAuth
-
-1. User clicks Google Login.
-2. Google authenticates user.
-3. JWT token is generated.
-4. User is redirected to dashboard.
+MongoDB Atlas
 
 ---
 
-## API Endpoints
+## 🚀 Future Enhancements
 
-### Authentication
-
-```http
-POST /api/auth/register
-POST /api/auth/login
-POST /api/auth/logout
-GET  /api/auth/profile
-```
-
-### Email Verification
-
-```http
-POST /api/auth/verify-otp
-POST /api/auth/resend-otp
-```
-
-### Password Reset
-
-```http
-POST /api/auth/forgot-password
-POST /api/auth/verify-reset-otp
-POST /api/auth/reset-password
-POST /api/auth/change-password
-```
-
-### OAuth
-
-```http
-GET /api/auth/google
-GET /api/auth/google/callback
-```
+* Voice Based Mock Interviews
+* AI Interview Simulation
+* Company Specific Interview Preparation
+* Resume Version Management
+* Interview Analytics Dashboard
+* AI Career Coach
+* Interview Performance Tracking
+* Multi Language Support
 
 ---
 
-## Security Measures
+## 📈 Learning Outcomes
 
-* JWT Authentication
-* bcrypt Password Hashing
-* HTTP-Only Cookies
-* Rate Limiting
-* OTP Expiration
-* Limited OTP Attempts
-* Input Validation
-* Protected Routes
+This project demonstrates:
 
----
-
-## Future Improvements
-
-* GitHub OAuth Login
-* Refresh Tokens
-* Two-Factor Authentication (2FA)
-* User Roles & Permissions
-* Account Activity Logs
-* Email Templates
-* Admin Dashboard
+* Full Stack Development
+* REST API Design
+* Authentication & Authorization
+* AI Integration
+* PDF Processing
+* MongoDB Database Design
+* Frontend State Management
+* Production Deployment Workflow
+* SaaS Application Architecture
 
 ---
 
-## Author
+## 👨‍💻 Author
 
 Ram
 
-B.Tech CSE-AI Student | Full Stack Developer
+B.Tech Computer Science & Engineering (AI)
+
+Full Stack Developer | AI Enthusiast
+
+---
+
+## ⭐ Support
+
+If you found this project useful:
+
+⭐ Star the repository
+
+🍴 Fork the repository
+
+🛠 Contribute improvements
+
+📢 Share feedback
+
+---
+
+Built with ❤️ using React, Node.js, MongoDB and Google Gemini AI.
+
+
+ PROJECT DEMO VIDEO:<video controls src="/DemoVideo.mp4" title="DEMO VIDEO"></video># AI-Interview-Coach

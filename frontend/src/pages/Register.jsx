@@ -181,45 +181,52 @@ export default function Register() {
             "
           >
 
-            <div
-              className="
-              mb-16
-              text-center
-              "
-            >
+            <div className="flex flex-col items-center">
+  {/* Logo Icon */}
+  <div className="mb-4">
+    <div className="relative w-20 h-20">
+      {/* Outer Circle */}
+      <div className="absolute inset-0 rounded-full border-4 border-white"></div>
 
-              <h1
-                className="
-                text-5xl
-                font-bold
-                "
-              >
-                LOGO
-              </h1>
+      {/* AI Circuit Lines */}
+      <div className="absolute -left-6 top-4 w-6 h-[2px] bg-white"></div>
+      <div className="absolute -left-6 top-8 w-6 h-[2px] bg-white"></div>
+      <div className="absolute -left-6 top-12 w-6 h-[2px] bg-white"></div>
 
-              <p
-                className="
-                text-sm
-                text-gray-300
-                mt-2
-                "
-              >
-                Slogan here
-              </p>
+      <div className="absolute -left-8 top-[14px] w-2 h-2 rounded-full bg-white"></div>
+      <div className="absolute -left-8 top-[30px] w-2 h-2 rounded-full bg-white"></div>
+      <div className="absolute -left-8 top-[46px] w-2 h-2 rounded-full bg-white"></div>
 
-            </div>
+      {/* Person Icon */}
+      <div className="absolute left-1/2 top-5 -translate-x-1/2 w-4 h-4 rounded-full bg-white"></div>
+
+      <div className="absolute left-1/2 top-10 -translate-x-1/2 w-8 h-10 rounded-t-full bg-white"></div>
+    </div>
+  </div>
+
+  {/* Brand Name */}
+  <h1 className="text-3xl font-bold text-white text-center">
+    AI Interview Coach
+  </h1>
+
+  {/* Slogan */}
+  <p className="mt-2 text-sm text-white/80 text-center">
+    Prepare Smart. Practice Confident. Succeed Faster.
+  </p>
+</div>
 
             <h2
               className="
-              text-6xl
-              font-bold
+              text-5xl
+              font-semibold
               text-center
               leading-tight
               mb-8
               "
             >
-              Start our
               <br />
+              Start our
+               
               journey
             </h2>
 

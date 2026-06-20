@@ -40,12 +40,33 @@ async function generateInterViewReportController(req, res) {
             interviewReport
         })
     } catch (err) {
-        console.error("generateInterViewReportController error:", err)
-        res.status(500).json({
-            message: "Failed to generate interview report.",
-            error: err.message
-        })
-    }
+
+  console.error(
+    "generateInterViewReportController error:",
+    err
+  );
+
+  if (
+    err.message.includes("503") ||
+    err.message.includes("UNAVAILABLE") ||
+    err.message.includes("high demand")
+  ) {
+
+    return res.status(503).json({
+      message:
+        "AI service is currently busy. Please try again in a few minutes.",
+      code: "AI_BUSY"
+    });
+
+  }
+
+  res.status(500).json({
+    message:
+      "Something went wrong while generating the report.",
+    code: "INTERNAL_ERROR"
+  });
+
+}
 }
 
 /**

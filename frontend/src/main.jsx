@@ -1,16 +1,26 @@
 import ReactDOM from "react-dom/client";
-import "./index.css"; // IMPORTANT
+import "./index.css";
 
 import App from "./App";
-
-import {
-  AuthProvider
-} from "./context/AuthContext";
+import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "./context/AuthContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 ReactDOM.createRoot(
   document.getElementById("root")
 ).render(
+
   <AuthProvider>
-    <App />
+
+    <ThemeProvider>
+
+      <App />
+      
+      <Toaster
+          position="top-right"
+        />
+    </ThemeProvider>
+
   </AuthProvider>
+
 );

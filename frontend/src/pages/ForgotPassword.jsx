@@ -138,7 +138,7 @@ export default function ForgotPassword() {
         <h1
           className="
           text-5xl
-          font-bold
+          font-semibold
           text-[#343762]
           mb-10
           "

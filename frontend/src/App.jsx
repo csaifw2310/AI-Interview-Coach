@@ -14,6 +14,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import InterviewReport from "./pages/InterviewReport";
+import Reports from "./pages/Reports";
 
 function App() {
   return (
@@ -82,6 +84,23 @@ function App() {
                     }
                   />
 
+             <Route
+                  path="/report/:interviewId"
+                  element={
+                    <ProtectedRoute>
+                      <InterviewReport />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                      path="/reports"
+                      element={
+                        <ProtectedRoute>
+                          <Reports />
+                        </ProtectedRoute>
+                      }
+                    />
 
               <Route
                   path="*"
