@@ -6,7 +6,7 @@ const { isValidEmail } = require("../utils/validators");
 const generateToken = require("../utils/generateToken");
 const transporter = require("../services/emailService");
 const { generateOTP } = require("../utils/otp");
-const { sendOTP } = require("../utils/sendOTP");
+const { sendOTP } = require("../utils/sendOtp");
 
 // =====================================================
 // REGISTER
